@@ -29,8 +29,6 @@ function App() {
 
   useEffect(() => {
     if (data?.length >= dataTotal) {
-      console.log(data);
-      console.log(dataTotal);
       setEndReached(true);
     }
   }, [page]);
@@ -47,7 +45,12 @@ function App() {
         height: "100vh",
       }}
     >
-      <DataList dataList={data} total={dataTotal} setPage={setPage} />
+      <DataList
+        dataList={data}
+        total={dataTotal}
+        setPage={setPage}
+        endReached={endReached}
+      />
       <p
         style={{
           minHeight: "50px",

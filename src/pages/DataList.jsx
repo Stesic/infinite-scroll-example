@@ -2,12 +2,12 @@ import React from "react";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 import DataListItem from "./DataListItem";
 
-const DataList = ({ dataList, total, setPage }) => {
+const DataList = ({ dataList, total, setPage, endReached }) => {
   const loadMoreButtonRef = React.useRef();
 
   useIntersectionObserver({
     target: loadMoreButtonRef,
-    enabled: dataList?.length && dataList?.length <= total,
+    enabled: dataList?.length && dataList?.length <= total && !endReached,
     setPage,
   });
 
